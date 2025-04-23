@@ -1,0 +1,61 @@
+@use "./utils" as ut;
+@use "./fonts" as ft;
+.main {
+    @include ut.flexBox(row, center, center);
+    height: 40vh;
+    font-family: ft.$pop-font;
+    &__content{
+        @include ut.flexBox(column, center, center);
+        background-color: #fff;
+        padding: 20px;
+        border-radius: .5rem;
+
+        &__line {
+
+        }
+
+        &__titleBox{
+            width: 100%;
+            text-align: left;
+            position: relative;
+            font-size: 26px;
+            h2::after {
+            content: "";
+            width: 80%;
+            height: 3.5px;
+            background-color: #000;
+            border-radius: 1rem;
+            position: absolute;
+            left: 0;
+            top: calc(100% - 5px);
+            }
+        }
+
+        &__contentBox{
+
+        }
+
+    }
+}
+
+.inputBox{
+    @include ut.flexBox(row, center, center);
+    gap: 4px;
+    input {
+        outline: none;
+        padding: 12px 17px;
+        border: rgb(205, 202, 202) solid 2px;
+        border-radius: .3rem;
+        font-size: 18px;
+    }
+}
+
+.bi.bi-arrow-down-left-square::before{
+    font-size: 21px;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.bi.bi-arrow-down-left-square:hover::before{
+    transform: scale(1.1);
+}

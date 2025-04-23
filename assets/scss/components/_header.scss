@@ -1,0 +1,31 @@
+@use "./utils" as ut;
+@use "./fonts" as ft;
+.header {
+    @include ut.flexBox(row, center, center);
+    height: 8vh;
+    padding-top: 40px;
+    &__textBox{
+        width: 50%;
+        color: #fff;
+        font-family: ft.$press-font;
+        font-size: 16px;
+        line-height: 45px;
+        text-align: center;
+        position: relative;
+        & span:nth-child(1n){
+            color: yellow;
+        }
+
+        &::after{
+            content: "";
+            width: 90%;
+            height: 3.5px;
+            background-color: #fff;
+            border-radius: 1rem;
+            position: absolute;
+            left: 50%;
+            top: calc(100% + 8px);
+            transform: translateX(-50%);
+        }
+    }
+}
