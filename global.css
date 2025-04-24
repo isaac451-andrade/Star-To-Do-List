@@ -5,7 +5,6 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 40vh;
   font-family: "Poppins";
 }
 .main__content {
@@ -16,6 +15,13 @@
   background-color: #fff;
   padding: 20px;
   border-radius: 0.5rem;
+  width: 320px;
+}
+.main__content__line {
+  margin-block: 20px;
+  height: 1px;
+  border-radius: 1rem;
+  background-color: #000;
 }
 .main__content__titleBox {
   width: 100%;
@@ -33,29 +39,61 @@
   left: 0;
   top: calc(100% - 5px);
 }
-.inputBox {
+.main__content__contentBox {
+  margin-top: 20px;
+  width: 100%;
+}
+.main__content__contentBox__area {
+  max-height: 280px;
+  overflow-y: auto;
+}
+.main__content__contentBox__area .item {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 4px;
+  background-color: rgb(156, 255, 255);
+  padding: 6px;
+  border-radius: 0.5rem;
+}
+.main__content__contentBox__area .item:nth-child(n+2) {
+  margin-top: 20px;
+}
+
+.inputBox {
+  position: relative;
+  box-shadow: 0 0 2px 0.1rem rgba(0, 0, 0, 0.212);
+  border-radius: 0.3rem;
+}
+.inputBox:hover, .inputBox:focus-within {
+  box-shadow: 0 0 6px 0.1rem rgba(0, 0, 0, 0.212);
 }
 .inputBox input {
-  outline: none;
   padding: 12px 17px;
-  border: rgb(205, 202, 202) solid 2px;
-  border-radius: 0.3rem;
   font-size: 18px;
+  width: 250px;
+  border: none;
+  outline: none;
+  border-radius: 0.3rem;
 }
 
-.bi.bi-arrow-down-left-square::before {
-  font-size: 21px;
+.bi.bi-vector-pen {
+  font-size: 26px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-47%);
+  right: 0;
   cursor: pointer;
-  transition: all 0.5s;
 }
 
-.bi.bi-arrow-down-left-square:hover::before {
-  transform: scale(1.1);
+.bi.bi-vector-pen::before {
+  padding: 10px 10px;
+  transition: color 0.5s;
+}
+
+.bi.bi-vector-pen:hover::before {
+  color: gold;
+  transition: color 0.5s;
 }
 
 .header {
@@ -65,6 +103,7 @@
   align-items: center;
   height: 8vh;
   padding-top: 40px;
+  margin-bottom: 64px;
 }
 .header__textBox {
   width: 50%;

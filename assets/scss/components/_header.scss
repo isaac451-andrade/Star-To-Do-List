@@ -4,6 +4,7 @@
     @include ut.flexBox(row, center, center);
     height: 8vh;
     padding-top: 40px;
+    margin-bottom: 64px;
     &__textBox{
         width: 50%;
         color: #fff;
