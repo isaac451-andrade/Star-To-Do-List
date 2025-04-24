@@ -8,7 +8,7 @@
         background-color: #fff;
         padding: 20px;
         border-radius: .5rem;
-        width: 320px;
+        width: 420px;
         &__line {
             margin-block: 20px;
             height: 1px;
@@ -42,12 +42,54 @@
                 overflow-y: auto;
                 
                 .item {
-                    @include ut.flexBox(row, space-between , center);
+                    display: flex;
+                    justify-content: space-between;
                     background-color: rgb(156, 255, 255);
                     padding: 6px;
                     border-radius: .5rem;
                     &:nth-child(n + 2){
                         margin-top: 20px;
+                    }
+
+                    label{
+                        cursor: pointer;
+                        padding: 6px;
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    &__textBox{
+                        display: inline-block;
+                        max-width: 280px;
+                    }
+
+                    &__optionsBox{
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+
+
+                        div {
+                            @include ut.flexBox(row, center, center);
+                            padding: 5px;
+                            cursor: pointer;
+                            min-height: 40px;
+                            height: 100%;
+                            width: 40px;
+                            
+                            &:hover img {
+                                transform: scale(1.1);
+                                transition: transform .4s;
+
+                            }
+
+                            img {
+                                width: 18px;
+                                transition: transform .4s;
+                            }
+                        }
+
+
                     }
                 }
             }
@@ -71,7 +113,7 @@
         padding: 12px 17px;
         // border: rgb(205, 202, 202) solid 2px;
         font-size: 18px;
-        width: 250px;
+        width: 280px;
         border: none;
         outline: none;
         border-radius: .3rem;

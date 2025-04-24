@@ -5,13 +5,14 @@
 *::before{
     margin: 0;
     padding: 0;
-    box-sizing: 0;
+    box-sizing: border-box;
 }
 
 body {
     height: 100vh;
     position: relative;
     z-index: 0;
+    padding: 30px;
     &::before {
         z-index: -1;
         content: "";

@@ -15,7 +15,7 @@
   background-color: #fff;
   padding: 20px;
   border-radius: 0.5rem;
-  width: 320px;
+  width: 420px;
 }
 .main__content__line {
   margin-block: 20px;
@@ -49,15 +49,47 @@
 }
 .main__content__contentBox__area .item {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
   background-color: rgb(156, 255, 255);
   padding: 6px;
   border-radius: 0.5rem;
 }
 .main__content__contentBox__area .item:nth-child(n+2) {
   margin-top: 20px;
+}
+.main__content__contentBox__area .item label {
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+}
+.main__content__contentBox__area .item__textBox {
+  display: inline-block;
+  max-width: 280px;
+}
+.main__content__contentBox__area .item__optionsBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.main__content__contentBox__area .item__optionsBox div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  cursor: pointer;
+  min-height: 40px;
+  height: 100%;
+  width: 40px;
+}
+.main__content__contentBox__area .item__optionsBox div:hover img {
+  transform: scale(1.1);
+  transition: transform 0.4s;
+}
+.main__content__contentBox__area .item__optionsBox div img {
+  width: 18px;
+  transition: transform 0.4s;
 }
 
 .inputBox {
@@ -71,7 +103,7 @@
 .inputBox input {
   padding: 12px 17px;
   font-size: 18px;
-  width: 250px;
+  width: 280px;
   border: none;
   outline: none;
   border-radius: 0.3rem;
@@ -103,10 +135,10 @@
   align-items: center;
   height: 8vh;
   padding-top: 40px;
-  margin-bottom: 64px;
+  margin-bottom: 80px;
 }
 .header__textBox {
-  width: 50%;
+  width: 60%;
   color: #fff;
   font-family: "Press Start 2P";
   font-size: 16px;
@@ -134,13 +166,14 @@
 *::before {
   margin: 0;
   padding: 0;
-  box-sizing: 0;
+  box-sizing: border-box;
 }
 
 body {
   height: 100vh;
   position: relative;
   z-index: 0;
+  padding: 30px;
 }
 body::before {
   z-index: -1;
