@@ -26,44 +26,27 @@
             
             <div class="main__content__contentBox">
                 <div class="inputBox">
-                    <input type="text" placeholder="Type">
+                    <input id="input-toList" type="text" placeholder="Type your things">
                     <i class="bi bi-vector-pen"></i>
                 </div>  
 
                 <hr class="main__content__line">
                 
-                <div class="main__content__contentBox__area">
-                    <div class="item">
-                        <label for="item-1">
-                            <div class="item__textBox">
-                                <p id="item-1">Fazer a tarefa de casa de noite</p>
-                            </div>
-                        </label>
-                        <div class="item__optionsBox">
-                            <div>
-                                <img src="./assets/imgs/pencil.png" alt="Edit Icon">
-                            </div>
-
-                            <div>
-                                <img src="./assets/imgs/bin.png" alt="Delete Icon">
-                            </div>
-                        </div>
-                    </div>
-        
-                </div>
+                <div class="main__content__contentBox__area"></div>
             </div>
         </div>
     </main>
 
     <script>
         $(document).ready(()=>{
-            
             const $itemsList = $(".main__content__contentBox__area");
             const $toDoInput = $(".inputBox input");
 
 
             const createCard = ()=>{
-                
+                if($toDoInput.val() ===""){
+                    return;
+                }
                 const $itemBox = $("<div>").addClass("item");
 
                 const $itemTextBox = $("<div>").addClass("item__textBox");
@@ -89,8 +72,8 @@
                 const $imgEdit = $("<img>").attr("src", "./assets/imgs/pencil.png").attr("alt", "Edit Icon");
                 const $imgDelete = $("<img>").attr("src", "./assets/imgs/bin.png").attr("alt", "Delete Icon");
 
-                $optionBox.append($("<div>").append($imgEdit));
-                $optionBox.append($("<div>").append($imgDelete));
+                $optionBox.append($("<div>").on("click", ()=>{alert("Funcionalidade de editar ainda em desenvolvimento!")}).append($imgEdit));
+                $optionBox.append($("<div>").on("click", ()=>{$itemBox.remove()}).append($imgDelete));
                 
                 $itemBox.append($optionBox);
 
@@ -101,6 +84,11 @@
     
             $(".bi.bi-vector-pen").on("click", createCard);
             
+            $("#input-toList").on("keypress", (event)=>{
+                if(event.which == 13){
+                    $(".bi.bi-vector-pen").trigger("click");
+                }
+            })            
         })
     </script>
 </body>
