@@ -66,6 +66,19 @@
   padding: 6px;
   display: flex;
   align-items: center;
+  position: relative;
+}
+.main__content__contentBox__area .item label .editTextArea {
+  position: absolute;
+  resize: none;
+  padding: 4px;
+  outline: none;
+  background-color: #9CFFFF;
+  border: 0;
+  border-radius: 0.2rem;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.212);
+  font-size: 17px;
+  overflow: hidden;
 }
 .main__content__contentBox__area .item__textBox {
   display: inline-block;
