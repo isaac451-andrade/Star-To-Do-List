@@ -42,19 +42,33 @@
             const $itemsList = $(".main__content__contentBox__area");
             const $toDoInput = $(".inputBox input");
 
-            function editCard(forLabel) {
+            function createEditBox(forLabel) {
                 const card = $(`label[for=${forLabel}]`);
+                const cardParagraph = card.children().children();
+
                 console.log(card.innerWidth(), "px"); 
                 console.log(card.innerHeight(), "px");
 
                 const editInput = $("<textarea>");
-                    editInput
+                
                 editInput.width(card.innerWidth());
                 editInput.height(card.innerHeight());
-
+                
                 editInput.addClass("editTextArea");
                 
-                editInput.val(card.children().children().text());
+                editInput.val(cardParagraph.text());
+                editInput.on("keypress", (e)=>{
+                    if(e.which == 13){
+                        cardParagraph.text(editInput.val());
+                        editInput.remove();
+                        if(cardParagraph.hasClass("selected")){
+                            cardParagraph.toggleClass("selected");
+                        }
+                        else{
+                            cardParagraph.toggleClass("selected");
+                        }
+                    }
+                })
 
                 card.append(editInput);
             }
@@ -76,7 +90,7 @@
                 const $textLabel = $("<label>").attr("for", `${$itemText.attr("id")}`); 
                 
                 
-                $textLabel.on("click", ()=>{
+                $textLabel.on("click", (e)=>{
                     $itemText.toggleClass("selected");
                 })
                 
@@ -90,7 +104,7 @@
                 const $imgEdit = $("<img>").attr("src", "./assets/imgs/pencil.png").attr("alt", "Edit Icon");
                 const $imgDelete = $("<img>").attr("src", "./assets/imgs/bin.png").attr("alt", "Delete Icon");
 
-                $optionBox.append($("<div>").on("click", ()=> {editCard($textLabel.attr("for"))} ).append($imgEdit));
+                $optionBox.append($("<div>").on("click", ()=> {createEditBox($textLabel.attr("for"))} ).append($imgEdit));
                 $optionBox.append($("<div>").on("click", ()=>{$itemBox.remove()}).append($imgDelete));
                 
                 $itemBox.append($optionBox);
